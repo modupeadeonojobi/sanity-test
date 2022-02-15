@@ -25,7 +25,7 @@ class ScoreCollectionTest {
         int actualResult = collection.arithmeticMean();
 
         // Assert
-        assertThat(actualResult, equalTo(6));
+        assertThat(actualResult, equalTo(6)); // AssertThat takes the actual result and a matcher as argument.
 
     }
 }
