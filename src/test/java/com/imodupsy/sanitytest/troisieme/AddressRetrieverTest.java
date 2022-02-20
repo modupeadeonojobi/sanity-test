@@ -35,17 +35,22 @@ class AddressRetrieverTest {
         when(http.get(contains("lat=38.000000&lon=-104.000000"))).thenReturn(
                 "{\"address\":{"
                 + "\"house_number\":\"324\","
-                + "\"road\":\"North Tejon Street\","
-                + "\"city\":\"Colorado Springs\","
-                + "\"state\":\"Colorado\","
-                + "\"postcode\":\"80903\","
-                + "\"country_code\":\"us\"}"
+                + "\"road\":\"First Avenue Gwarinpa\","
+                + "\"city\":\"FCT\","
+                + "\"state\":\"Abuja\","
+                + "\"postcode\":\"99001\","
+                + "\"country_code\":\"ng\"}"
                 + "}");
 
 
         Address address = addressRetriever.retrieve(38.0, -104.0);
 
         assertThat(address.houseNumber, equalTo("324"));
+        assertThat(address.road, equalTo("First Avenue Gwarinpa"));
+        assertThat(address.city, equalTo("FCT"));
+        assertThat(address.state, equalTo("Abuja"));
+        assertThat(address.zip, equalTo("99001"));
+
 
     }
 
