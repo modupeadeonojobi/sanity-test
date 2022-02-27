@@ -13,12 +13,28 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  */
 class ProfileTest {
 
-    
+    private Profile profile;
+
+    private BooleanQuestion questionIsTherePaidVacation;
+
+    private Answer answerThereIsPaidVacation;
+
+    @BeforeEach
+    public void createProfile() {
+        profile = new Profile();
+
+    }
+
+    @BeforeEach
+    public void createQuestionAndAnswer() {
+        questionIsTherePaidVacation = new BooleanQuestion(1, "Paid vacation?");
+        answerThereIsPaidVacation = new Answer(questionIsTherePaidVacation, Bool.True);
+
+    }
+
     @Test
     public void matchesNothingWhenProfileEmpty() {
-       Profile profile = new Profile();
-       Question question = new BooleanQuestion(1, "Paid vacation?");
-       Criterion criterion = new Criterion(new Answer(question, Bool.True), Weight.DontCare);
+       Criterion criterion = new Criterion(answerThereIsPaidVacation, Weight.DontCare);
 
        boolean result = profile.matches(criterion);
        assertFalse(result);
@@ -27,14 +43,12 @@ class ProfileTest {
 
     @Test
     public void matchesWhenProfileContainsMatchingAnswer() {
-        Profile profile = new Profile();
-        Question question = new BooleanQuestion(1, "Paid vacation?");
-        Answer answer = new Answer(question, Bool.True);
-        profile.add(answer);
-        Criterion criterion = new Criterion(answer, Weight.Important);
+        profile.add(answerThereIsPaidVacation);
+        Criterion criterion = new Criterion(answerThereIsPaidVacation, Weight.Important);
 
         boolean result = profile.matches(criterion);
         assertTrue(result);
+
     }
 
 
