@@ -1,13 +1,12 @@
 package com.imodupsy.sanitytest.troisieme;
 
-import java.io.*;
-
-import com.imodupsy.sanitytest.troisieme.util.Http;
 import com.imodupsy.sanitytest.troisieme.util.HttpImpl;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
-import org.json.simple.*;
-import org.json.simple.parser.*;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+import java.io.IOException;
 
 /**
  * @author iModupsy
