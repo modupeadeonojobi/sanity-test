@@ -51,6 +51,16 @@ class ProfileTest {
 
     }
 
+    @Test
+    public void doesNotMatchWhenNoMatchingAnswer() {
+        profile.add(answerThereIsPaidVacation);
+        Criterion criterion = new Criterion(answerThereIsPaidVacation, Weight.Important);
+
+        boolean result = profile.matches(criterion);
+
+        assertFalse(result);
+    }
+
 
 
 

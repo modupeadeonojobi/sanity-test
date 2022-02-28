@@ -7,6 +7,8 @@ import com.imodupsy.sanitytest.second.Weight;
  * @created 27/02/2022
  */
 public class Criterion {
+    public Answer getAnswer;
+
     public Criterion(Answer answer, Weight dontCare) {
     }
 }
